@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const endPoint = "http://localhost:3001";
-const baseApi = "/api/v1";
+const apiEndPoint = window.location.protocol === 'https:' ? (this.appPort ? `https://${window.location.hostname}:${this.appPort}/api/v1` :
+  `https://${window.location.hostname}/api/v1`) : `http://${window.location.hostname}:3001/api/v1`;
 
 export const SaveConfigData = (data) => {
-  console.log("save request for:", data);
   axios
-    .post(endPoint + baseApi + `/data`)
+    .post(apiEndPoint + `/data`, data)
     .then(function (response) {
       console.log(response);
     })
