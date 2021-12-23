@@ -1,1 +1,2 @@
-npm build
+npm install react-scripts
+npm start
